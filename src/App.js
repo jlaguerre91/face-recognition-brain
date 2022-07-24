@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
@@ -143,9 +142,9 @@ class App extends Component {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-         <Particles className='particles'
+         {/* <Particles className='particles'
           params={particlesOptions}
-        />
+        /> */}
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         { route === 'home'
           ? <div>
