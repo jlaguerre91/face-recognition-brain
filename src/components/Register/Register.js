@@ -16,6 +16,7 @@ class Register extends React.Component {
 
   onEmailChange = (event) => {
     this.setState({email: event.target.value})
+    console.log(event);
   }
 
   onPasswordChange = (event) => {
@@ -23,9 +24,10 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/register', {
+    fetch('https://thawing-river-97837.herokuapp.com/register', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'content-type': 'application/json',
+                'accept': 'application/json, text/plain, */*'},
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,
@@ -34,7 +36,7 @@ class Register extends React.Component {
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
+        if (user.id) {
           this.props.loadUser(user)
           this.props.onRouteChange('home');
         }
